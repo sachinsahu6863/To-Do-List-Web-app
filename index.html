@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Flow Tasks | Simple To-Do List</title>
+  <!-- CSS reference (Part 2) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <main class="todo-card">
+      <!-- header section -->
+      <div class="app-header">
+        <div class="title-icon">
+          <span class="check-mark-badge">✓</span>
+          <h1>Flow Tasks</h1>
+        </div>
+        <p class="subhead">stay focused, finish things</p>
+      </div>
+
+      <!-- input area: add new task -->
+      <div class="task-input-section">
+        <div class="input-wrapper">
+          <input type="text" id="taskInput" placeholder="Write a new task ..." autocomplete="off">
+          <button id="addTaskBtn" class="add-btn" aria-label="Add task">+ Add</button>
+        </div>
+        <div class="input-hint">press Enter to add</div>
+      </div>
+
+      <!-- filter & stats bar -->
+      <div class="filter-stats-bar">
+        <div class="filter-group">
+          <button data-filter="all" class="filter-btn active-filter" id="filterAll">All</button>
+          <button data-filter="active" class="filter-btn" id="filterActive">Active</button>
+          <button data-filter="completed" class="filter-btn" id="filterCompleted">Completed</button>
+        </div>
+        <div class="task-counter" id="taskCounter">
+          <span id="remainingCount">0</span> tasks left
+        </div>
+      </div>
+
+      <!-- dynamic tasks list container -->
+      <div class="tasks-container">
+        <ul id="taskList" class="task-list">
+          <!-- tasks injected via JavaScript -->
+        </ul>
+      </div>
+
+      <!-- bottom actions: clear completed + simple footer -->
+      <div class="bottom-actions">
+        <button id="clearCompletedBtn" class="clear-completed">Clear completed</button>
+        <div class="tip-note">✓ click to toggle • ✗ remove task</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript reference (Part 3) -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+/* -----------------------------------------------------
+   Simple To-Do List App — Modern & Minimal Design
+   File: style.css (Part 2/3)
+   ----------------------------------------------------- */
+
+/* ----- CSS RESET / GLOBAL STYLES ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(145deg, #e9f0fc 0%, #d9e3f0 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* main card container */
+.app-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.todo-card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(0px);
+  border-radius: 2rem;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  padding: 1.8rem 1.8rem 1.5rem 1.8rem;
+}
+
+/* header area */
+.app-header {
+  margin-bottom: 1.6rem;
+  border-bottom: 2px solid #eef2f8;
+  padding-bottom: 1rem;
+}
+
+.title-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.check-mark-badge {
+  background: #2b7a4b;
+  color: white;
+  width: 32px;
+  height: 32px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  box-shadow: 0 4px 8px rgba(43, 122, 75, 0.2);
+}
+
+.app-header h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  background: linear-gradient(135deg, #1f2f3e, #2c4c6e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subhead {
+  font-size: 0.8rem;
+  color: #6c7a8a;
+  margin-top: 0.35rem;
+  margin-left: 2.7rem;
+  letter-spacing: 0.2px;
+}
+
+/* ----- input section ----- */
+.task-input-section {
+  margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 0.7rem;
+  background: #f8fafd;
+  border-radius: 60px;
+  padding: 0.25rem 0.25rem 0.25rem 1.2rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.input-wrapper:focus-within {
+  border-color: #2b7a4b;
+  box-shadow: 0 0 0 3px rgba(43, 122, 75, 0.2);
+  background: white;
+}
+
+#taskInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.85rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e2a36;
+  outline: none;
+}
+
+#taskInput::placeholder {
+  color: #9aaebf;
+  font-weight: 400;
+}
+
+.add-btn {
+  background: #2b7a4b;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0 1.3rem;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.15s linear;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.add-btn:hover {
+  background: #1e5f3a;
+  transform: scale(0.97);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+.input-hint {
+  font-size: 0.7rem;
+  color: #8fa0b0;
+  margin-left: 1.2rem;
+  margin-top: 0.45rem;
+}
+
+/* filter & stats row */
+.filter-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  background: #f1f5f9;
+  padding: 0.6rem 1rem;
+  border-radius: 60px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.4rem;
+  background: #e9eef3;
+  padding: 0.2rem;
+  border-radius: 48px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 32px;
+  cursor: pointer;
+  color: #4a5b6e;
+  transition: 0.1s;
+  font-family: inherit;
+}
+
+.filter-btn.active-filter {
+  background: white;
+  color: #1e5f3a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:not(.active-filter):hover {
+  background: #dfe6ef;
+  color: #1f3a48;
+}
+
+.task-counter {
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: white;
+  padding: 0.3rem 0.9rem;
+  border-radius: 30px;
+  color: #2b4b6e;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+#remainingCount {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0f2b3b;
+}
+
+/* ----- task list styling ----- */
+.tasks-container {
+  max-height: 380px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  border-radius: 1.2rem;
+  scrollbar-width: thin;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* each task item */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 0.7rem 0.9rem 0.7rem 0.7rem;
+  border-radius: 1.2rem;
+  border: 1px solid #ecf1f7;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.task-item:hover {
+  border-color: #cddfea;
+  background: #fefefe;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* left side: checkbox + text */
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #b9cddf;
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+  flex-shrink: 0;
+}
+
+.task-item.completed .custom-checkbox {
+  background: #2b7a4b;
+  border-color: #2b7a4b;
+  color: white;
+}
+
+.custom-checkbox::after {
+  content: "✓";
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  display: none;
+}
+
+.task-item.completed .custom-checkbox::after {
+  display: block;
+}
+
+.task-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2f3c;
+  word-break: break-word;
+  transition: 0.1s;
+  padding-right: 0.5rem;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #8ea2b2;
+}
+
+/* delete button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #b9c7d4;
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+  color: #e5484d;
+  transform: scale(0.96);
+}
+
+/* bottom actions */
+.bottom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #edf2f7;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.clear-completed {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #6c7e92;
+  transition: 0.1s;
+  font-family: inherit;
+}
+
+.clear-completed:hover {
+  background: #f1f5f9;
+  color: #cc3b3b;
+  border-color: #ffcdcd;
+}
+
+.tip-note {
+  font-size: 0.7rem;
+  color: #95a9bc;
+  background: #f8fafc;
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+}
+
+/* empty state styling */
+.empty-state {
+  text-align: center;
+  padding: 2.2rem 1rem;
+  background: #fafcff;
+  border-radius: 1.5rem;
+  color: #8b9eb0;
+  font-weight: 500;
+  border: 1px dashed #cbdde9;
+  font-size: 0.9rem;
+}
+
+/* custom scroll for tasks container */
+.tasks-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tasks-container::-webkit-scrollbar-track {
+  background: #eef2f8;
+  border-radius: 10px;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background: #bacddb;
+  border-radius: 10px;
+}
+
+/* responsive adjustments */
+@media (max-width: 500px) {
+  .todo-card {
+    padding: 1.2rem;
+  }
+  
+  .filter-stats-bar {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 28px;
+  }
+  
+  .filter-group {
+    justify-content: center;
+  }
+  
+  .task-counter {
+    text-align: center;
+  }
+  
+  .input-wrapper {
+    padding-left: 0.9rem;
+  }
+  
+  .add-btn {
+    padding: 0 1rem;
+  }
+  
+  .task-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* subtle animation for new task */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item {
+  animation: fadeSlide 0.2s ease-out;
+}
